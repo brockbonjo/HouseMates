@@ -1,0 +1,31 @@
+<%- include ../../partials/nav %>
+<%- include ../../partials/household_top %>
+
+<% if (user.household.shoppingList) { %>
+    <div>
+        <h2> <%=user.household.shoppingList.name%> </h2>
+        <% if (user.household.shoppingList.items.length > 0) { %>
+            <ul>
+                <% user.household.shoppingList.items.forEach(function(i) { %>
+                    <li> <%=i.name%></li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p> no items yet </p>
+            <form action="/household/shopping/additem" method="POST">
+                <input type="text" name="name" placeholder="items name">
+                <input type="text" name="quantity" placeholder="how many">
+                <input type="submit" value="add">
+            </form>
+        <% } %>
+    </div>
+<% } else { %>
+    <p>no shopping yet...</p>
+    <form action="/household/shopping" method="POST">
+    <label>
+        Create Shopping List:
+        <input type="text" name="name" placeholder="name of new shopping list">
+        <input type="submit" value="Create">
+    </label>
+    </form>
+<%}%>

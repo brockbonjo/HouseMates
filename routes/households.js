@@ -2,19 +2,18 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const householdsCtrl = require('../controllers/households');
+const myUtils = require('../utilities/my_utils');
 
-router.get('/', isLoggedIn , hasHousehold, householdsCtrl.index);
-router.get('/new', isLoggedIn, householdsCtrl.new);
+router.use(myUtils.isLoggedIn);
 
-router.post('/', isLoggedIn, householdsCtrl.create);
-router.post('/join', isLoggedIn, householdsCtrl.join);
+router.get('/', hasHousehold, householdsCtrl.index);
+router.get('/new', householdsCtrl.new);
 
-function isLoggedIn(req, res, next) {
-  if(req.isAuthenticated() ) {
-    return next();
-  }
-  res.redirect('/');
-}
+router.post('/', householdsCtrl.create);
+router.post('/join', householdsCtrl.join);
+
+
+/*---------------------------------*/
 
 function hasHousehold(req, res, next) {
   if(req.user.household) {

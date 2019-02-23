@@ -20,10 +20,7 @@ const choreSchema = new Schema({
 const msgSchema = new Schema({
     title: String,
     content: String,
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-    }
+    author: String
 }, {timestamps: true});
 
 const householdSchema = new Schema({

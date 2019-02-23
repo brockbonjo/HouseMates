@@ -52,10 +52,17 @@ function newHH(req, res, next) {
     });
 }
 function index(req, res, next) {
-    // console.log(req);
-    // console.log(req.user);
-    res.render('household/index', {
-        user: req.user,
-        name: req.query.name
+    Household.findById(req.user.household)
+    .populate('members')
+    .exec(function(err, h) {
+        if(err) {
+            console.log(err);
+            res.redirect('/');
+        }
+        res.render('household/index', {
+            user: req.user,
+            household: h,
+            title: h.name
+        });
     });
 }

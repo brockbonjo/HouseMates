@@ -9,3 +9,20 @@ nav {
   align-items: center;
   padding: 0 10px;
 }
+#hh-tiles-container{
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  
+}
+#hh-tiles-container > a{
+  height: 100px;
+  width: 100px;
+  background: red;
+  place-self: center;
+}
+#hh-tiles-container > a:hover {
+  background: rgb(255,0,100);
+}

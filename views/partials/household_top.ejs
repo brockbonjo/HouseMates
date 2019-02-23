@@ -1,0 +1,7 @@
+<h1> your household <%=household.name %> </h1>
+<p>
+    household members:
+    <% household.members.forEach(function(m) { %>
+    <%= m.name %>
+    <% }) %>
+</p>
