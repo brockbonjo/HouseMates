@@ -1,0 +1,18 @@
+<%- include ../partials/nav.ejs %>
+
+<div id="new-household">
+    <form method="POST" action="/household" autocomplete="off">
+        <label>
+            Name of the Household:  
+            <input type="text" name="name">
+        </label>
+        <input type="submit" value="OK!">
+    </form>
+    <form action="/household/join" method="POST">
+        <label>
+            Enter invitation code:
+            <input type="text" name="code">
+        </label>
+        <input type="submit" value="GO">
+    </form>
+</div>

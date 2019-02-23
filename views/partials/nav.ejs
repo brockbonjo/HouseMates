@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>title</title>
+	<link rel='stylesheet' href='/stylesheets/reset.css' />
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+	<nav>
+		<div id="hello">
+			<% if (user) { %>
+				<h3>Hello <%=user.firstName%> </h3>
+			<% } else {%>
+				<h1>Hello Stranger!</h1>
+			<% } %>
+		</div>
+		<div id="login-out">
+			<% if (user) { %>
+				<a href="/logout"> Log Out </a>
+			<% } else { %>
+				<a href="/auth/google">Log In with Google</a>
+			<% } %>
+		</div>
+	</nav>

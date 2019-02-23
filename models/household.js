@@ -1,0 +1,45 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const myUtils = require('../utilities/my_utils');
+
+
+const itemSchema = new Schema({
+    name: String, 
+    quantity: Number,
+    urgent: Boolean,
+}, {timestamps: true});
+const shoppingListSchema = new Schema({
+    name: String,
+    items: [itemSchema]
+}, {timestamps: true});
+const choreSchema = new Schema({
+    name: String,
+    description: String,
+    deadline: Date,
+}, {timestamps: true});
+const msgSchema = new Schema({
+    title: String,
+    content: String,
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    }
+}, {timestamps: true});
+
+const householdSchema = new Schema({
+    name: String,
+    members: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    shoppingList: shoppingListSchema,
+    chores: [choreSchema],
+    messages: [msgSchema],
+    accessCode: String
+}, {timestamps: true});
+
+householdSchema.method('generateInvite', function() {
+    this.accessCode = myUtils.codeGenerator(13);
+})
+
+module.exports = mongoose.model('Household', householdSchema);

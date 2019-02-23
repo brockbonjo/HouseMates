@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<%- include ./partials/nav %>
+
+<% if(user) { %>
+    proceed to your household: <a href="/household">here </a>
+<%} else {%>
+    log in to explore the whole awesomeness of this app!!
+<%}%>
+
+</body>
 </html>
