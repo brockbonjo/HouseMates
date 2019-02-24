@@ -6,9 +6,12 @@ const myUtils = require('../utilities/my_utils');
 router.use(myUtils.isLoggedIn);
 
 router.get('/', shoppingCtrl.index);
+router.get('/:id/edit', shoppingCtrl.edit);
 
 router.post('/', shoppingCtrl.create);
-router.post('/additem', shoppingCtrl.additem);
+router.put('/:id', shoppingCtrl.update);
+router.delete('/:id', shoppingCtrl.destroy);
+
 
 
 module.exports = router;

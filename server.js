@@ -18,6 +18,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const householdRouter = require('./routes/households');
 const shoppingRouter = require('./routes/shopping');
+const tasksRouter = require('./routes/tasks');
 
 
 // view engine setup
@@ -45,6 +46,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/household/shopping', shoppingRouter);
+app.use('/household/tasks', tasksRouter);
 
 app.use('/household', householdRouter);
 

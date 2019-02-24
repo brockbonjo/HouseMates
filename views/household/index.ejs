@@ -1,5 +1,8 @@
 <%- include ../partials/nav %>
-<%- include ../partials/household_top %>
+<% if (user.household) {%>
+    <%- include ../partials/household_top %>
+<%}%>
+
 
 <!-- here view of all household's goodies-->
 <div id="hh-tiles-container">

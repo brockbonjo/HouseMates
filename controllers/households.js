@@ -52,9 +52,10 @@ function newHH(req, res, next) {
     });
 }
 function index(req, res, next) {
-    Household.findById(req.user.household)
-    .populate('members')
-    .exec(function(err, h) {
+    if(req.user.household) {
+        Household.findById(req.user.household)
+        .populate('members')
+        .exec(function(err, h) {
         if(err) {
             console.log(err);
             res.redirect('/');
@@ -65,4 +66,11 @@ function index(req, res, next) {
             title: h.name
         });
     });
+    } else {
+        res.render('household/index', {
+            user: req.user,
+            household: null,
+            title: 'Join or Create'
+        })
+    }
 }

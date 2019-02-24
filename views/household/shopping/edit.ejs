@@ -1,0 +1,13 @@
+<%- include ../../partials/nav %>
+<%- include ../../partials/household_top %>
+<a href="/household">back</a>
+
+<div>
+    <form action="/household/shopping/<%= item._id %>?_method=PUT" method="POST">
+        <input type="text" name="name" value="<%= item.name %>">
+        <input type="text" name="quantity" value="<%= item.quantity %>" >
+        <input type="checkbox" name="urgent" <%= (item.urgent) ? 'checked' : '' %> >
+        
+        <input type="submit" value="update">
+    </form>
+</div>

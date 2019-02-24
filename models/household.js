@@ -6,11 +6,10 @@ const myUtils = require('../utilities/my_utils');
 const itemSchema = new Schema({
     name: String, 
     quantity: Number,
-    urgent: Boolean,
-}, {timestamps: true});
-const shoppingListSchema = new Schema({
-    name: String,
-    items: [itemSchema]
+    urgent: {
+        type: Boolean,
+        default: false
+    }
 }, {timestamps: true});
 const choreSchema = new Schema({
     name: String,
@@ -29,7 +28,7 @@ const householdSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }],
-    shoppingList: shoppingListSchema,
+    shoppingList: [itemSchema],
     chores: [choreSchema],
     messages: [msgSchema],
     accessCode: String
