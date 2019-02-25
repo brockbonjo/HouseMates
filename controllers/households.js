@@ -48,7 +48,8 @@ function create(req, res, next) {
 
 function newHH(req, res, next) {
     res.render('household/new',{
-        user: req.user
+        user: req.user,
+        title: 'Welcome!'
     });
 }
 function index(req, res, next) {
@@ -63,7 +64,7 @@ function index(req, res, next) {
         res.render('household/index', {
             user: req.user,
             household: h,
-            title: h.name
+            title: h.name || 'Welcome!'
         });
     });
     } else {

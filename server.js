@@ -19,6 +19,10 @@ const usersRouter = require('./routes/users');
 const householdRouter = require('./routes/households');
 const shoppingRouter = require('./routes/shopping');
 const tasksRouter = require('./routes/tasks');
+const messagesRouter = require('./routes/messages');
+const spendingsRouter = require('./routes/spendings');
+const membersRouter = require('./routes/members');
+const settingsRouter = require('./routes/settings');
 
 
 // view engine setup
@@ -47,6 +51,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/household/shopping', shoppingRouter);
 app.use('/household/tasks', tasksRouter);
+app.use('/household/messages', messagesRouter);
+app.use('/household/spendings', spendingsRouter);
+app.use('/household/members', membersRouter);
+app.use('/household/settings', settingsRouter);
 
 app.use('/household', householdRouter);
 

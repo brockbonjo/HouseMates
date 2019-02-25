@@ -1,28 +1,82 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: grid;
+  grid-template-rows: 5vh 10vh 81vh;
+}
+h1 {
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 nav {
   background: skyblue;
   display: flex;
   justify-content: space-between;
-  height: 5vh;
   align-items: center;
   padding: 0 10px;
 }
+#household-top {
+  background-color: yellow;
+  padding: 0 10px;
+}
 #hh-tiles-container{
-  margin: 20px auto;
+  margin: 2vh auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 10px;
-  
+  grid-template-columns: 25vw 25vw 25vw;
+  grid-gap: 2vw;
 }
 #hh-tiles-container > a{
-  height: 100px;
-  width: 100px;
-  background: red;
+  height: 100%;
+  width: 100%;
   place-self: center;
 }
 #hh-tiles-container > a:hover {
   background: rgb(255,0,100);
+}
+.hh-tiles {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  border: 1px solid pink;
+  filter: blur(0.5px);
+}
+.hh-tiles > h2 {
+  display: block;
+  margin: 0 auto;
+  font-size: 40px;
+}
+.hh-tiles:hover {
+  border: none;
+  filter: none;
+}
+#hh-shopping {
+  background: url("../images/shopping.jpg");
+  background-size: cover;
+}
+#hh-chores {
+  background: url("../images/tasks.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#hh-msgs {
+  background: url("../images/messages.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#hh-spendings {
+  background: url("../images/spendings.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#hh-members {
+  background: url("../images/members.jpg");
+  background-size:cover;
+  background-position: center;
+}
+#hh-settings {
+  background: url("../images/settings.jpg");
+  background-size: cover;
+  background-position: left;
 }

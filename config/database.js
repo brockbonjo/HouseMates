@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb+srv://housemates:${process.env.DB_PASSWORD}@housemates-cluster-rhjyg.mongodb.net/test?retryWrites=true`, {useNewUrlParser: true});
+mongoose.connect(process.env.DB_LINK, {useNewUrlParser: true});
 
 const db = mongoose.connection;
 

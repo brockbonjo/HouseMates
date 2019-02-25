@@ -16,11 +16,11 @@ const choreSchema = new Schema({
     description: String,
     deadline: Date,
 }, {timestamps: true});
-const msgSchema = new Schema({
-    title: String,
-    content: String,
-    author: String
-}, {timestamps: true});
+// const msgSchema = new Schema({
+//     title: String,
+//     content: String,
+//     author: String
+// }, {timestamps: true});
 
 const householdSchema = new Schema({
     name: String,
@@ -30,7 +30,10 @@ const householdSchema = new Schema({
     }],
     shoppingList: [itemSchema],
     chores: [choreSchema],
-    messages: [msgSchema],
+    messages: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Message'
+    }],
     accessCode: String
 }, {timestamps: true});
 
