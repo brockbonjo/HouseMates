@@ -1,10 +1,11 @@
 <%- include ./partials/nav %>
-
-<% if(user) { %>
-    proceed to your household: <a href="/household">here </a>
-<%} else {%>
-    log in to explore the whole awesomeness of this app!!
-<%}%>
-
+<div class="welcome-page">
+    <% if(user) { %>
+        <h1> <a href="/household">go to my household</a></h1>
+    <%} else {%>
+        <h1>Log in and start exploring!!</h1>
+    <%}%>
+    
+</div>
 </body>
 </html>

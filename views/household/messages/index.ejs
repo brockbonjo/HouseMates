@@ -1,22 +1,24 @@
 <%- include ../../partials/nav %>
 <%- include ../../partials/household_top %>
-<a href="/household">back</a>
 
-<div>
+<div class="content">
+    <a href="/household">
+        <i class="fas fa-arrow-left fa-3x"></i>
+    </a>
     <p>
         this is my messages view<br>
         user is: <%= user.name %> <br>
     </p>
     <% if (messages.length > 0) {
         messages.forEach(function(m) { %>
-            <p><%= m.title %></p>
-            <p><%= m.content %></p>
-            <form action="/household/messages/<%=m._id%>?_method=DELETE" method="POST">
-            <button type="submit" value="delete">delete</button>
-            </form>
-        <%})
+    <p><%= m.title %></p>
+    <p><%= m.content %></p>
+    <form action="/household/messages/<%=m._id%>?_method=DELETE" method="POST">
+        <button type="submit" value="delete">delete</button>
+    </form>
+    <%})
     } else { %>
-        <p>no messages yet</p>
+    <p>no messages yet</p>
     <%}%>
 
     <form action="/household/messages" method="POST">
@@ -27,3 +29,5 @@
 
 
 </div>
+</body>
+</html>

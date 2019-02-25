@@ -4,22 +4,60 @@ body {
   grid-template-rows: 5vh 10vh 81vh;
 }
 h1 {
-  font-size: 20px;
+  font-size: calc(16px + 6 * ((100vw - 320px) / 680));
 }
 a {
   text-decoration: none;
   color: black;
 }
+input {
+  font-size: 20px;
+}
+.welcome-page {
+  background: url("../images/background-login.jpg");
+  background-size: cover;
+  height: 95vh;
+  text-align: right;
+}
+.welcome-page > h1 > a {
+  color: white;
+}
+#new-household {
+  width: 80%;
+  height: 60vh;
+  margin: 10vh auto;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#new-household > form {
+  border: 1px solid gray;
+  height: 30%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+}
+#new-household > form > input[type="submit"] {
+  width: 100px;
+  font-size: 20px;
+}
+
 nav {
-  background: skyblue;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
+  border: 1px solid gray;
 }
 #household-top {
-  background-color: yellow;
-  padding: 0 10px;
+  background-color:rgba(129,145,178,0.5);
+  padding: 2vh 10px;
+  text-align: center;
 }
 #hh-tiles-container{
   margin: 2vh auto;
@@ -45,7 +83,7 @@ nav {
 .hh-tiles > h2 {
   display: block;
   margin: 0 auto;
-  font-size: 40px;
+  font-size: calc(20px + 6 * ((100vw - 300px) / 680));
 }
 .hh-tiles:hover {
   border: none;
@@ -80,3 +118,7 @@ nav {
   background-size: cover;
   background-position: left;
 }
+.content {
+  padding: 10px;
+}
+

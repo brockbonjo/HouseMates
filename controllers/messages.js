@@ -37,6 +37,7 @@ function create(req, res) {
 function index(req, res) {
     Household.findOne({"_id": req.user.household})
     .populate('messages')
+    .populate('members')
     .then( household => {
         res.render('household/messages/index', {
             user: req.user,

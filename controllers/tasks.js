@@ -65,5 +65,4 @@ function index(req, res) {
             });
         })
     })
-    // res.send('yeah it works');
 }
