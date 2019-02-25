@@ -21,8 +21,8 @@ function sendInvite(req, res) {
             name: 'house_mates@yahoo.com',
             service: 'Yahoo',
             auth: {
-                user: process.env.YAHOO_USER,
-                pass: process.env.YAHOO_PASS
+                user: `${process.env.YAHOO_USER}`,
+                pass: `${process.env.YAHOO_PASS}`
             }
         });
         let mailOptions = {

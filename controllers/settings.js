@@ -7,6 +7,7 @@ module.exports = {
 
 function index(req, res) {
     Household.findById(req.user.household)
+    .populate('members')
     .then( hh => {
         res.render('household/settings/index', {
             user: req.user,
