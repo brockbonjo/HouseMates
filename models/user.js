@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Household = require('./household');
 
 const userSchema = new Schema({
     name: String,
@@ -17,6 +18,11 @@ userSchema.virtual('firstName').get(function() {
 userSchema.method('setHousehold', function(val) {
     this.household = val;
 });
+
+// userSchema.method('removeFromHousehold', () => {
+//     Household.findOneAndUpdate({_id: this.household}, 
+//         {$pull: {members: this._id}});
+// });
 
 
 

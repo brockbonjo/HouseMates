@@ -6,5 +6,19 @@
         <a href="/household">
             <i class="fas fa-arrow-left fa-3x"></i>
         </a>
-        <h1> members info will be here </h1>
+        
+
+        <a href="/household/members/invite">invite new members</a>
+
+        <% household.members.forEach( member => {%>
+
+            <div id="member-card">
+                <img src="<%=member.profilePic%>" alt="profile picture">
+                name: <%= member.name %>
+                <form action="/household/members/<%=member._id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="delete">
+                </form>
+            </div>
+
+        <%})%>
 </div>

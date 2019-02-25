@@ -1,0 +1,17 @@
+<%- include ../../partials/nav %>
+<%- include ../../partials/household_top %>
+
+
+<div class="content">
+        <a href="/household">
+            <i class="fas fa-arrow-left fa-3x"></i>
+        </a>
+
+        <form action="/household/members/send" method="POST">
+        <input type="text" name="email">
+        <input type="submit" value="send">
+        </form>
+
+</div>
+</body>
+</html>

@@ -40,6 +40,6 @@ const householdSchema = new Schema({
 
 householdSchema.method('generateInvite', function() {
     this.accessCode = myUtils.codeGenerator(13);
-})
+});
 
 module.exports = mongoose.model('Household', householdSchema);
