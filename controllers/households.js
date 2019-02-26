@@ -17,15 +17,19 @@ function join(req, res) {
             console.log(err);
             res.redirect('/');
         } else {
-            req.user.setHousehold(household._id);
-            req.user.save( err => {
+            if(household) {
+                req.user.setHousehold(household._id);
+                req.user.save( err => {
                 if (err) console.log(err);
-            });
-            household.members.push(req.user._id);
-            household.save( err => {
-                if(err) console.log(err);
-            })
-            res.redirect('/household');
+                });
+                household.members.push(req.user._id);
+                household.save( err => {
+                 if(err) console.log(err);
+                })
+                res.redirect('/household');
+            } else {
+                res.redirect('/household/new');                         /*maybe some angry kitty etc*/
+            } 
         }
     });
 }

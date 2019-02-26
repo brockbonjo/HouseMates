@@ -17,6 +17,8 @@ function sendInvite(req, res) {
     Household.findById(req.user.household)
     .then( hh => {
         hh.generateInvite();
+        return hh.save();
+    }).then( ( hh ) => {
         let transporter = nodemailer.createTransport({
             name: 'house_mates@yahoo.com',
             service: 'Yahoo',
