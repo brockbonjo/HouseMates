@@ -23,7 +23,6 @@ const messagesRouter = require('./routes/messages');
 const spendingsRouter = require('./routes/spendings');
 const membersRouter = require('./routes/members');
 const settingsRouter = require('./routes/settings');
-const apiRouter = require('./routes/api');
 
 
 // view engine setup
@@ -50,7 +49,6 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api', apiRouter);
 app.use('/household/shopping', shoppingRouter);
 app.use('/household/tasks', tasksRouter);
 app.use('/household/messages', messagesRouter);

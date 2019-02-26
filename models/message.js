@@ -13,6 +13,7 @@ const msgSchema = new Schema({
    title: String,
    content: String,
    author: String, 
+   picture: String,
    comments: [commentSchema]
 }, {timestamps: true});
 

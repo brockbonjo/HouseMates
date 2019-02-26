@@ -20,18 +20,24 @@ function distroy(req, res) {
 }
 
 function create(req, res) {
-    req.body.author = req.user.firstName;
-    let newMsg = new Message(req.body);
+    let newMsg = new Message({
+        author: req.user.firstName,
+        title: req.body.title,
+        content: req.body.content,
+    });
+    if(req.file) {
+        newMsg.picture = req.file.url;
+    }
     newMsg.save()
     .then( msg => {
         return Household.findById(req.user.household)
-        .then( hh => {
+        .then ( hh => {
             hh.messages.push(msg);
             return hh.save();
         });
-    }).then ( () => {
+    }).then( () => {
         res.redirect('/household/messages');
-    })
+    });
 }
 
 function index(req, res) {
