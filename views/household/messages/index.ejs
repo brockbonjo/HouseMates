@@ -1,7 +1,7 @@
 <%- include ../../partials/nav %>
 <%- include ../../partials/household_top %>
 
-<div class="content">
+<div class="content-msg">
     <a href="/household">
         <i class="fas fa-arrow-left fa-3x"></i>
     </a>
@@ -9,27 +9,31 @@
         this is my messages view<br>
         user is: <%= user.name %> <br>
     </p>
+    <div class="add-new">
+        <form action="/household/messages" method="POST" enctype="multipart/form-data">
+            <input type="text" name="title" placeholder="title">
+            <input type="text" name="content" placeholder="content">
+            <input type="file" name="image">
+            <input type="submit" value="post">
+        </form>
+    </div>
     <% if (messages.length > 0) {
         messages.forEach(function(m) { %>
-    <p><%= m.title %></p>
-    <p><%= m.content %></p>
-    <% if (m.picture) {%>
-        <img src="<%=m.picture%>" alt="pic">
-    <%}%>
-    <form action="/household/messages/<%=m._id%>?_method=DELETE" method="POST">
-        <button type="submit" value="delete">delete</button>
-    </form>
-    <%})
+        <div class="one-msg">
+            <h3><%= m.author %></h3>
+            <h2><%= m.title %></h2>
+            <p><%= m.content %></p>
+            <% if (m.picture) {%>
+                <img src="<%=m.picture%>" alt="pic">
+            <%}%>
+            <form action="/household/messages/<%=m._id%>?_method=DELETE" method="POST">
+                <button type="submit" value="delete" class="deletebtn">delete</button>
+            </form>
+        </div>
+         <%})
     } else { %>
     <p>no messages yet</p>
     <%}%>
-
-    <form action="/household/messages" method="POST" enctype="multipart/form-data">
-        <input type="text" name="title" placeholder="title">
-        <input type="text" name="content" placeholder="content">
-        <input type="file" name="image">
-        <input type="submit" value="post">
-    </form>
     <!-- <form action="/api/images" method="POST" enctype="multipart/form-data">
         <input type="file" name="image">
         <input type="submit" value="post image">

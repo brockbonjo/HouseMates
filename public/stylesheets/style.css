@@ -1,9 +1,12 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: grid;
-  grid-template-rows: 5vh 10vh 81vh;
+  grid-template-rows: 5vh 15vh 71vh;
 }
 h1 {
+  font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+}
+h2 {
   font-size: calc(16px + 6 * ((100vw - 320px) / 680));
 }
 a {
@@ -31,6 +34,8 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background: url("../images/cats/blue.jpg");
+  background-size: cover;
 }
 #new-household > form {
   border: 1px solid gray;
@@ -41,6 +46,8 @@ input {
   align-items: center;
   justify-content: space-around;
   font-size: 20px;
+  background: rgba(0,0,0,0.5);
+  color: white;
 }
 #new-household > form > input[type="submit"] {
   width: 100px;
@@ -55,9 +62,12 @@ nav {
   border: 1px solid gray;
 }
 #household-top {
-  background-color:rgba(129,145,178,0.5);
+  /* background-color:rgba(129,145,178,0.5); */
   padding: 2vh 10px;
   text-align: center;
+  background: url("../images/cats/header.jpg");
+  background-size: cover;
+  background-position-y: bottom;
 }
 #hh-tiles-container{
   margin: 2vh auto;
@@ -120,5 +130,78 @@ nav {
 }
 .content {
   padding: 10px;
+  border: 1px solid gray;
+  width: 80%;
+  margin: 5vh auto 0 auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
+.content-bottom {
+  width: 80%;
+  margin: 0 auto;
+  background: rgba(100,100,100, 0.5);
+  padding: 10px;
+}
+.content-bottom > input {
+  font-size: 14px;
+}
+.one-item {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+  border-collapse: collapse;
+}
+.buttons {
+  display: flex;
+}
+.deletebtn {
+  color: red;
+}
+.content-msg {
+  height: 100%;
+}
+.one-msg {
+  border: rgb(228, 203, 41);
+  box-shadow: 10px 10px 5px grey;
+  box-shadow: 1px gray;
+  width: 80%;
+  margin: 10vh auto;
+  text-align: center;
+  background: rgb(254,226, 51);
+}
+.one-msg > h2,
+.one-msg > h3 {
+  background: rgb(228, 203, 41);
+  padding: 10px;
+}
+.one-msg > img {
+  width: 90%;
+  padding: 10px;
+}
+.one-msg > .deletebtn {
+  margin: 20px;
+}
+.add-new {
+  border: 1px solid black;
+  height: 10vh;
+  width: 90%;
+  margin: 5vh auto;
+}
+#total {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: gray;
+}
+.member-card {
+  border: 1px solid red;
+  width: 70%;
+  margin: 5vh auto;
+  padding: 20px;
+}
+
 

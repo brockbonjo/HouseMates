@@ -5,17 +5,19 @@
         <a href="/household">
             <i class="fas fa-arrow-left fa-3x"></i>
         </a>
-
-
+        <h2>Spendings</h2>
         <% let total = 0;
         if (household.spendings.length > 0) { %>
-            <ul>
                 <% household.spendings.forEach(function(s) {%> 
-                    <li><%= s.description %></li>
-                    <li>amount: $<%=s.amount %></li>
-                    <form action="/household/spendings/<%=s._id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="&times;">
-                    </form>
+                    <div class="one-item">
+                        <div><%= s.description %></div>
+                        <div>amount: $<%=s.amount %></div>
+                        <div class="buttons">
+                        <form action="/household/spendings/<%=s._id%>?_method=DELETE" method="POST">
+                        <input type="submit" value="&times;" class="deletebtn">
+                        </form>
+                        </div>
+                    </div>
                 <% total+= s.amount
             })%>
             </ul>
@@ -35,10 +37,13 @@
         <input type="submit" value="Add">
         </form>
         <hr>
+
+        <div id="total">
         <p> total is $<%= total %></p>
         <form action="/household/spendings?_method=DELETE" method="POST">
             <input type="submit" value="reset">
         </form>
+        </div>
 </div>
 </body>
 </html>

@@ -5,28 +5,33 @@
         <i class="fas fa-arrow-left fa-3x"></i>
     </a>
     <% if (user.household.chores.length > 0) {%>
-    <p>yes, we have chores</p>
-    <ul>
+    <h2>My Tasks</h2>
         <% user.household.chores.forEach(function(c) { %>
-        <li><%= c.name %>
-            <form action="/household/tasks/<%= c._id %>?_method=DELETE" method="POST">
-                <button class="deletebtn" type="submit">X</button>
-            </form>
-            <form action="/household/tasks/<%= c._id %>/edit" method="GET">
-                <button class="editbtn" type="submit">EDIT</button>
-            </form>
-        </li>
-        <% }) %>
-    </ul>
+        <div class="one-item">
+            <%= c.name %>
+                <div class="buttons">
+                    <form action="/household/tasks/<%= c._id %>?_method=DELETE" method="POST">
+                        <button class="deletebtn" type="submit">X</button>
+                    </form>
+                    <form action="/household/tasks/<%= c._id %>/edit" method="GET">
+                        <button class="editbtn" type="submit">EDIT</button>
+                    </form>
+                </div>
+        </div> 
+            <% }) %>
+ 
     <%} else {%>
     <p>no chores yet</p>
     <%}%>
-<form action="/household/tasks" method="POST" autocomplete="off">
-    <input type="text" name="name" placeholder="task name">
-    <input type="text" name="description" placeholder="details">
-    <input type="date" name="deadline">
-    <input type="submit" value="add">
-</form>
 </div>
+<div class="content-bottom">
+    <form action="/household/tasks" method="POST" autocomplete="off">
+        <input type="text" name="name" placeholder="task name">
+        <input type="text" name="description" placeholder="details">
+        <input type="date" name="deadline">
+        <input type="submit" value="add">
+    </form>
+</div>
+
 </body>
 </html>

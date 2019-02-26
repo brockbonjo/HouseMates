@@ -2,17 +2,16 @@
 <%- include ../../partials/household_top %>
 
 
-<div class="content">
+<div class="content-msg">
         <a href="/household">
             <i class="fas fa-arrow-left fa-3x"></i>
         </a>
         
-
         <a href="/household/members/invite">invite new members</a>
 
         <% household.members.forEach( member => {%>
 
-            <div id="member-card">
+            <div class="member-card">
                 <img src="<%=member.profilePic%>" alt="profile picture">
                 name: <%= member.name %>
                 <form action="/household/members/<%=member._id%>?_method=DELETE" method="POST">

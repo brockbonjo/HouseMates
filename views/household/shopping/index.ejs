@@ -5,40 +5,37 @@
     <a href="/household">
         <i class="fas fa-arrow-left fa-3x"></i>
     </a>
-    <h2> <%=user.household.shoppingList.name%> </h2>
+    <h2> My shopping </h2>
     <% if (user.household.shoppingList.length > 0) { %>
-    <ul>
+        <hr>
         <% user.household.shoppingList.forEach(function(i) { %>
-        <li> <%=i.name%>
-            <form action="/household/shopping/<%= i._id %>?_method=DELETE" method="POST">
+        <div class="one-item">
+            <%=i.name%>
+            <div class="buttons">
+            <form action="/household/shopping/<%= i._id %>?_method=DELETE" method="POST" >
                 <button class="deletebtn" type="submit">X</button>
             </form>
             <form action="/household/shopping/<%= i._id %>/edit" method="GET">
                 <button class="editbtn" type="submit">EDIT</button>
             </form>
-        </li>
+            </div>
+        </div>
         <% }) %>
-    </ul>
     <% } else { %>
     <p> no items yet </p>
     <% } %>
+</div>
+<% } else { %>
+<p>no shopping yet...</p>
+<%}%>
+</div>
+<div class="content-bottom">
     <form action="/household/shopping" method="POST" autocomplete="off">
         <input type="text" name="name" placeholder="items name">
         <input type="text" name="quantity" placeholder="how many">
         <input type="checkbox" name="urgent"> urgent<br>
         <input type="submit" value="add">
     </form>
-</div>
-<% } else { %>
-<p>no shopping yet...</p>
-<form action="/household/shopping" method="POST">
-    <label>
-        Create Shopping List:
-        <input type="text" name="name" placeholder="name of new shopping list">
-        <input type="submit" value="Create">
-    </label>
-</form>
-<%}%>
 </div>
 </body>
 </html>
