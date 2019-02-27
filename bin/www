@@ -21,6 +21,10 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+//socket io config
+const io = require('../io');
+io.attach(server);
+
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -76,7 +80,6 @@ function onError(error) {
       throw error;
   }
 }
-
 /**
  * Event listener for HTTP server "listening" event.
  */

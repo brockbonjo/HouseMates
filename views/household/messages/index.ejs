@@ -7,7 +7,7 @@
             <input type="text" name="title" placeholder="title">
             <input type="text" name="content" placeholder="content">
             <input type="file" name="image">
-            <input type="submit" value="post">
+            <input type="submit" value="post" id="submitbtn">
         </form>
     </div>
     <div class="content">
@@ -43,5 +43,8 @@
 
 </div>
 </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/messages.js"></script>
 
 <%- include ../../partials/footer %>
