@@ -1,17 +1,45 @@
 <%- include ../../partials/nav %>
 <%- include ../../partials/household_top %>
 <% if (user.household.shoppingList) { %>
+<div class="body-content">
+<div class="content-bottom">
+        <form action="/household/shopping" method="POST" autocomplete="off">
+            <div><input type="text" name="name" placeholder="items name">
+            <input type="text" name="quantity" placeholder="how many" pattern="[0-9]{1,}" title="The value must be a number">
+            <!-- <select>
+                <option value="lbs">lbs</option>
+                <option value="package">package</option>
+                <option value="pack">pack</option>
+                <option value="carton">carton</option>
+                <option value="loaf">loaf</option>
+                <option value="box">box</option>
+                <option value="bottle">bottle</option>
+                <option value="can">can</option>
+                <option value="gallon">gallon</option>
+                <option value="pint">pint</option>
+            </select> -->
+        </div>
+            <div><input type="checkbox" name="urgent"> urgent
+            <input type="submit" value="&#43;" class="addbtn"></div>
+        </form>
+    </div>
 <div class="content">
     <a href="/household">
         <i class="fas fa-arrow-left fa-3x"></i>
     </a>
     <h2> My shopping </h2>
-    <% if (user.household.shoppingList.length > 0) { %>
+    <% if (user.household.shoppingList.length > 0) { 
+        user.household.shoppingList.sort(function(x,y) {
+            return (x.urgent===y.urgent) ? 0 : x.urgent? -1 : 1;
+        })%>
         <hr>
         <% user.household.shoppingList.forEach(function(i) { %>
-        <div class="one-item">
+        <div class="one-item  <%= (i.urgent) ? 'urgent' : '' %>"
+           
+        >
             <%=i.name%>
             <div class="buttons">
+            <div class="quantity"><%= i.quantity %></div>
             <form action="/household/shopping/<%= i._id %>?_method=DELETE" method="POST" >
                 <button class="deletebtn" type="submit">X</button>
             </form>
@@ -28,14 +56,7 @@
 <% } else { %>
 <p>no shopping yet...</p>
 <%}%>
+
 </div>
-<div class="content-bottom">
-    <form action="/household/shopping" method="POST" autocomplete="off">
-        <input type="text" name="name" placeholder="items name">
-        <input type="text" name="quantity" placeholder="how many">
-        <input type="checkbox" name="urgent"> urgent<br>
-        <input type="submit" value="add">
-    </form>
 </div>
-</body>
-</html>
+<%- include ../../partials/footer %>

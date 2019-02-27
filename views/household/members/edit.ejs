@@ -1,0 +1,24 @@
+<%- include ../../partials/nav %>
+<%- include ../../partials/household_top %>
+
+<div class="body-content">
+    <div class="content">
+        <a href="/household/members">
+            <i class="fas fa-arrow-left fa-3x"></i>
+        </a>
+        <form action="/household/members/<%=userEdit._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div>
+                <h2>full name</h2>
+                <input type="text" name="name" value="<%=userEdit.name%>">
+            </div>
+            <div>
+                <h2>new profile pic</h2>
+                <input type="file" name="image">
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="update">
+            </div>
+        </form>
+    </div>  
+</div>

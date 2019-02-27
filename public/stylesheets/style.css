@@ -1,10 +1,15 @@
+* {
+  box-sizing: border-box;
+}
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font-family: 'Assistant', sans-serif;
   display: grid;
-  grid-template-rows: 5vh 15vh 71vh;
+  grid-template-rows: 5vh 10vh 82vh 3vh;
 }
 h1 {
-  font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  font-size: calc(25px + 6 * ((100vw - 320px) / 680));
+  font-weight: 300;
 }
 h2 {
   font-size: calc(16px + 6 * ((100vw - 320px) / 680));
@@ -53,7 +58,6 @@ input {
   width: 100px;
   font-size: 20px;
 }
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -64,21 +68,35 @@ nav {
 #household-top {
   /* background-color:rgba(129,145,178,0.5); */
   padding: 2vh 10px;
-  text-align: center;
+  text-align: left;
   background: url("../images/cats/header.jpg");
   background-size: cover;
   background-position-y: bottom;
+  color:  rgb(0, 0, 0);
+}
+#top-content {
+  background: rgba(255,255,255,0.2);
+  width: 50%;
+}
+.body-content {
+  overflow: auto;
 }
 #hh-tiles-container{
-  margin: 2vh auto;
+  padding: 2%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 25vw 25vw 25vw;
-  grid-gap: 2vw;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 48% 48%;
+  grid-gap: 5%;
+  grid-row-gap: 3%;
+  height: 100%;
+  width: 90%;
 }
 #hh-tiles-container > a{
+  position: relative;
   height: 100%;
   width: 100%;
-  place-self: center;
+  /* place-self: center; */
 }
 #hh-tiles-container > a:hover {
   background: rgb(255,0,100);
@@ -139,13 +157,17 @@ nav {
   position: relative;
 }
 .content-bottom {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   background: rgba(100,100,100, 0.5);
   padding: 10px;
 }
-.content-bottom > input {
-  font-size: 14px;
+.content-bottom > form {
+  display: flex;
+  justify-content: space-around;
+}
+.content-bottom > form > input {
+  font-size: calc(14px + 6 * ((100vw - 320px) / 680));
 }
 .one-item {
   border: 1px solid gray;
@@ -154,6 +176,17 @@ nav {
   align-items: center;
   height: 5vh;
   border-collapse: collapse;
+  padding: 2%;
+}
+.urgent {
+  background-image: url('../images/orange-bcg.png');
+  background-size: cover;
+}
+.past {
+  color: red;
+}
+.quantity {
+  margin: 0 15px;
 }
 .buttons {
   display: flex;
@@ -161,15 +194,14 @@ nav {
 .deletebtn {
   color: red;
 }
-.content-msg {
-  height: 100%;
+.addbtn {
+  color: green;
 }
 .one-msg {
   border: rgb(228, 203, 41);
   box-shadow: 10px 10px 5px grey;
-  box-shadow: 1px gray;
   width: 80%;
-  margin: 10vh auto;
+  margin: 5vh auto;
   text-align: center;
   background: rgb(254,226, 51);
 }
@@ -182,7 +214,7 @@ nav {
   width: 90%;
   padding: 10px;
 }
-.one-msg > .deletebtn {
+.one-msg > form > .deletebtn {
   margin: 20px;
 }
 .add-new {
@@ -191,17 +223,88 @@ nav {
   width: 90%;
   margin: 5vh auto;
 }
+.edit-form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.edit-form > div > {
+  width: 100%;
+}
+.updatebtn {
+  color: green;
+}
 #total {
+  font-size: 18px;
   position: absolute;
   top: 0;
   right: 0;
   background: gray;
+  padding: 5px;
+  border-radius: 12px;
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: url('../images/orange-bcg.png');
+}
+#invite {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 4px auto;
+  border-radius: 18px;
+  background: url('../images/aqua-bcg.png');
+  box-shadow: 10px 10px 5px grey;
 }
 .member-card {
-  border: 1px solid red;
   width: 70%;
   margin: 5vh auto;
   padding: 20px;
+  background-size:cover;
+  background-position: bottom;
+  border-radius: 10px;
+}
+.member-pink {
+  background-image: url('../images/cards/pink.jpg');
+}
+.member-red {
+  background-image: url('../images/cards/red.jpg');
+}
+.member-orange {
+  background-image: url('../images/cards/orange.jpg');
+}
+.member-blue {
+  background-image: url('../images/cards/blue.jpg');
+}
+.card-inside {
+  height: 95%;
+  width: 100%;
+  background: rgba(22,22,22,0.2);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-inside > div > img {
+  max-height: 30vh;
+}
+#profile-pic {
+  padding: 5px;
+  margin: 10px;
+  background: white;
+}
+.profile-buttons {
+  display: flex;
+  margin: 10px;
+}
+i:hover {
+  color: rgba(0,0,0,0.7);
+}
+footer {
+  text-align: center;
 }
 
 

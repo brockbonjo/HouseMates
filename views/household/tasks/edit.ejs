@@ -1,13 +1,22 @@
 <%- include ../../partials/nav %>
 <%- include ../../partials/household_top %>
-<a href="/household">back</a>
+
+
+<div class="body-content">
+    <div class="content">
+<a href="/household/tasks">
+    <i class="fas fa-arrow-left fa-3x"></i>
+</a>
 
 <div>
-    <form action="/household/tasks/<%= chore._id %>?_method=PUT" method="POST">
-        <input type="text" name="name" value="<%= chore.name %>">
-        <input type="text" name="description" value="<%= chore.description %>" >
-        <input type="date" name="deadline" value="<%= date %>">
-        
+    <form action="/household/tasks/<%= chore._id %>?_method=PUT" method="POST" class="edit-form">
+        <div><input type="text" name="name" value="<%= chore.name %>"></div>
+        <div><input type="text" name="description" value="<%= chore.description %>" ></div>
+        <div><input type="date" name="deadline" value="<%= date %>"></div>
+        <div>
         <input type="submit" value="update">
+        </div>
     </form>
+</div>
+</div>
 </div>

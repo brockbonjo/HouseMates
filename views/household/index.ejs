@@ -2,8 +2,7 @@
 <% if (user.household) {%>
     <%- include ../partials/household_top %>
 <%}%>
-
-
+<div class="body-content">
 <!-- here view of all household's goodies-->
 <div id="hh-tiles-container">
     <a href="/household/shopping" id="test">
@@ -38,6 +37,6 @@
         </div>
     </a>
 </div>
+</div>
 
-</body>
-</html>
+<%- include ../partials/footer %>

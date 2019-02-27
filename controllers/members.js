@@ -7,9 +7,37 @@ module.exports = {
     destroy,
     new: newInvite,
     sendInvite,
+    edit,
+    update,
 };
 
 
+function update(req, res) {
+    let updateMember = {};
+    if(req.body.name) updateMember.name = req.body.name;
+    if(req.file) updateMember.profilePic = req.file.url;
+    console.log(req.file);
+    User.findByIdAndUpdate(req.params.id, updateMember, {new: true})
+    .then( (u) => {
+        console.log(u);
+        res.redirect('/household/members');
+    });
+}
+function edit(req, res) {
+    let p1 = User.findById(req.params.id);
+    let p2 = Household.findById(req.user.household).populate('members');
+    Promise.all([p1,p2])
+    .then( response => {
+        res.render('household/members/edit',{
+            user: req.user,
+            household: response[1],
+            title: 'Edit',
+            userEdit: response[0],
+        });
+    }).catch ( err => {
+        console.log(err);
+    });
+}
 
 function sendInvite(req, res) {
     let email = req.body.email;

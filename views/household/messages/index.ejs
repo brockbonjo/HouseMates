@@ -1,15 +1,8 @@
 <%- include ../../partials/nav %>
 <%- include ../../partials/household_top %>
 
-<div class="content-msg">
-    <a href="/household">
-        <i class="fas fa-arrow-left fa-3x"></i>
-    </a>
-    <p>
-        this is my messages view<br>
-        user is: <%= user.name %> <br>
-    </p>
-    <div class="add-new">
+<div class="body-content">
+    <div class="content-bottom">
         <form action="/household/messages" method="POST" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="title">
             <input type="text" name="content" placeholder="content">
@@ -17,7 +10,16 @@
             <input type="submit" value="post">
         </form>
     </div>
+    <div class="content">
+            <a href="/household">
+                <i class="fas fa-arrow-left fa-3x"></i>
+            </a>
     <% if (messages.length > 0) {
+        messages.sort(function (a,b){
+            if(a.updatedAt > b.updatedAt) return -1;
+            else if(a.updatedAt < b.updatedAt) return 1;
+            else return 0;
+        })
         messages.forEach(function(m) { %>
         <div class="one-msg">
             <h3><%= m.author %></h3>
@@ -39,7 +41,7 @@
         <input type="submit" value="post image">
     </form> -->
 
-
 </div>
-</body>
-</html>
+</div>
+
+<%- include ../../partials/footer %>

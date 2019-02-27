@@ -1,15 +1,36 @@
 <%- include ../../partials/nav %>
 <%- include ../../partials/household_top %>
+<div class="body-content">
+        <div class="content-bottom">
+                <form action="/household/tasks" method="POST" autocomplete="off">
+                    <input type="text" name="name" placeholder="task name">
+                    <input type="text" name="description" placeholder="details">
+                    <input type="date" name="deadline">
+                    <input type="submit" value="add">
+                </form>
+            </div>
+
 <div class="content">
     <a href="/household">
         <i class="fas fa-arrow-left fa-3x"></i>
     </a>
-    <% if (user.household.chores.length > 0) {%>
-    <h2>My Tasks</h2>
+    <% if (user.household.chores.length > 0) {
+        user.household.chores.sort(function(a,b) {
+            if(a.deadline < b.deadline) return -1;
+            else if(a.deadline>b.deadline)return 1;
+            else return 0;
+        }); %>
+    
+        <h2>My Tasks</h2>
+        
         <% user.household.chores.forEach(function(c) { %>
-        <div class="one-item">
+        <div class="one-item <%= (c.deadline < new Date()) ? 'past' : '' %>">
+            
             <%= c.name %>
                 <div class="buttons">
+                    <div class="quantity">
+                        <%= c.deadline.toLocaleDateString() %>
+                    </div>
                     <form action="/household/tasks/<%= c._id %>?_method=DELETE" method="POST">
                         <button class="deletebtn" type="submit">X</button>
                     </form>
@@ -24,14 +45,6 @@
     <p>no chores yet</p>
     <%}%>
 </div>
-<div class="content-bottom">
-    <form action="/household/tasks" method="POST" autocomplete="off">
-        <input type="text" name="name" placeholder="task name">
-        <input type="text" name="description" placeholder="details">
-        <input type="date" name="deadline">
-        <input type="submit" value="add">
-    </form>
 </div>
 
-</body>
-</html>
+<%- include ../../partials/footer %>
