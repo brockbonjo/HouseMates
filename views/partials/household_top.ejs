@@ -1,11 +1,10 @@
 <div id="household-top">
 <div id="top-content">
 <h1><%=household.name %></h1>
-<p>
-    household members:
+<h3>
     <% household.members.forEach(function(m) { %>
     <%= m.name %>
     <% }) %>
-</p>
+    </h3>
 </div>
 </div>

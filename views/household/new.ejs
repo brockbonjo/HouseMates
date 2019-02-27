@@ -2,18 +2,17 @@
 
 <div id="new-household">
     <form method="POST" action="/household" autocomplete="off">
-        <label>
-            Name of the Household:  
-            <input type="text" name="name">
-        </label>
+        <h2>Name of the new Household</h2>
+        <input type="text" name="name">
+        <div></div>
         <input type="submit" value="OK!">
     </form>
+    OR
     <form action="/household/join" method="POST" autocomplete="off">
-        <label>
-            Enter invitation code:
-            <input type="text" name="code">
-        </label>
-        <input type="submit" value="GO">
+        <h2>Enter invitation code </h2>
+        <input type="text" name="code">
+        <div></div>
+        <input type="submit" value="OK!">
     </form>
 </div>
 </body>

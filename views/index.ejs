@@ -1,11 +1,14 @@
 <%- include ./partials/nav %>
 <div class="welcome-page">
     <% if(user) { %>
-        <h1> <a href="/household">go to my household</a></h1>
+        <h1><a href="/household">
+            <h1>my household</h1><i class="fas fa-home"></i>
+        </a></h1>
     <%} else {%>
-        <h1>Log in and start exploring!!</h1>
+        <h1><a href="/auth/google">
+        <h1>Log in to start exploring!!</h1></a></h1>
     <%}%>
     
 </div>
-</body>
-</html>
+<div class="body-content"></div>
+<%- include ./partials/footer %>

@@ -6,10 +6,14 @@
         <form action="/household/messages" method="POST" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="title">
             <input type="text" name="content" placeholder="content">
+            <div><i class="far fa-caret-square-down fa-3x"></i></div>
             <input type="file" name="image">
             <input type="submit" value="post" id="submitbtn">
         </form>
     </div>
+    <div id="notification">
+            <h2>New message posted!</h2>
+        </div>
     <div class="content">
             <a href="/household">
                 <i class="fas fa-arrow-left fa-3x"></i>
@@ -46,5 +50,5 @@
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="/javascripts/messages.js"></script>
-
+</div>
 <%- include ../../partials/footer %>
