@@ -8,6 +8,9 @@ body {
   grid-template-rows: 5vh 15vh 77vh 3vh;
   border: 1px solid gray;
 }
+#error-body > div {
+  margin: 0 auto;
+}
 h1 {
   font-size: calc(30px + 6 * ((100vw - 320px) / 680));
   font-weight: 300;
