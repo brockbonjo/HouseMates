@@ -7,19 +7,19 @@
             <i class="fas fa-arrow-left fa-3x"></i>
         </a>
         <h1> settings </h1>
-        <form action="/settings/update" method="POST">
+        <form action="/household/update" method="POST">
             <label>
                 Name of this Household
-                <input type="text" value="<%=household.name%>">
+                <input type="text" name="name" value="<%=household.name%>">
             </label>
             <input type="submit" value="update name">
         </form>
-        <hr>
-        <div>
-            <h2>Contact</h2>
-            <a href="mailto:weronika.altowka@gmail.com">email</a>
-        </div>
-        
+        <form action="/household?_method=DELETE" method="POST">
+            <label>
+                Delete this Household
+                <input type="submit" value="DELETE" class="deletebtn" onclick="return confirm('are you sure?')">
+            </label>
+        </form>
     </div>
 </div>
 </body>

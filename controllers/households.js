@@ -1,5 +1,6 @@
 const Household = require('../models/household');
 const User = require('../models/user');
+const Message = require('../models/message');
 
 
 module.exports = {
@@ -7,9 +8,32 @@ module.exports = {
     new: newHH,
     create,
     join, 
-
+    update,
+    destroy
 }
 
+
+function destroy(req, res) {
+    Household.findOneAndDelete({"_id": req.user.household})
+    .then(hh => {
+        console.log(hh);
+        return User.updateMany(
+            {"_id": {$in: hh.members}},
+            {$unset: {household:1}},
+            {multi: true}
+        );
+    }).then (x => {
+        res.redirect('/');
+    });
+}
+
+function update(req, res) {
+    Household.findByIdAndUpdate(req.user.household, {name: req.body.name})
+    .then( () => {
+        req.user.household.remove();
+        res.redirect('/household/settings');
+    });
+}
 function join(req, res) {
     let invite = req.body.code;
     Household.findOne({'accessCode': invite}, function(err, household) {
