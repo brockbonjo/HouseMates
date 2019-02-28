@@ -4,6 +4,7 @@ const shoppingCtrl = require('../controllers/shopping');
 const myUtils = require('../utilities/my_middleware');
 
 router.use(myUtils.isLoggedIn);
+router.use(myUtils.hasHousehold);
 
 router.get('/', shoppingCtrl.index);
 router.get('/:id/edit', shoppingCtrl.edit);

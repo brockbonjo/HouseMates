@@ -6,6 +6,7 @@ const middlewareCtrl = require('../utilities/pic_middleware');
 
 
 router.use(myUtils.isLoggedIn);
+router.use(myUtils.hasHousehold);
 
 router.get('/', messagesCtrl.index);
 

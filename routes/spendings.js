@@ -4,6 +4,7 @@ const myUtils = require('../utilities/my_middleware');
 const spendingsCtrl = require('../controllers/spendings');
 
 router.use(myUtils.isLoggedIn);
+router.use(myUtils.hasHousehold);
 
 router.get('/', spendingsCtrl.index);
 router.post('/', spendingsCtrl.create);

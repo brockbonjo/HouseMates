@@ -5,6 +5,7 @@ const myUtils = require('../utilities/my_middleware');
 const middlewareCtrl = require('../utilities/pic_middleware');
 
 router.use(myUtils.isLoggedIn);
+router.use(myUtils.hasHousehold);
 
 router.get('/', membersCtrl.index);
 router.get('/invite', membersCtrl.new);

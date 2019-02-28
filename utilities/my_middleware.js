@@ -5,6 +5,14 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
+function hasHousehold(req, res, next) {
+  if(req.user.household !== undefined) {
+    return next();
+  }
+  res.redirect('/household/new');
+}
+
 module.exports = {
     isLoggedIn,
+    hasHousehold
 }

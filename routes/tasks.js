@@ -4,6 +4,7 @@ const tasksCtrl = require('../controllers/tasks');
 const myUtils = require('../utilities/my_middleware');
 
 router.use(myUtils.isLoggedIn);
+router.use(myUtils.hasHousehold);
 
 router.get('/', tasksCtrl.index);
 router.get('/:id/edit', tasksCtrl.edit);

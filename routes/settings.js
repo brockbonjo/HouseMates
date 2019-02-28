@@ -4,6 +4,7 @@ const myUtils = require('../utilities/my_middleware');
 const settingsCtrl = require('../controllers/settings');
 
 router.use(myUtils.isLoggedIn);
+router.use(myUtils.hasHousehold);
 
 router.get('/', settingsCtrl.index);
 

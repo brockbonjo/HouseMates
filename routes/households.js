@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
 const householdsCtrl = require('../controllers/households');
 const myUtils = require('../utilities/my_middleware');
 
 router.use(myUtils.isLoggedIn);
 
-router.get('/', hasHousehold, householdsCtrl.index);
+router.get('/',hasHousehold, householdsCtrl.index);
 router.get('/new', householdsCtrl.new);
 
 router.post('/', householdsCtrl.create);

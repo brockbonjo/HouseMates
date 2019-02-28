@@ -216,6 +216,9 @@ nav {
   grid-template-rows: 1fr 2fr 1fr 1fr;
   height: 20vh;
 }
+.content-bottom > form.full > input[type="submit"] {
+  width: 20%;
+}
 .content-bottom > form > input {
   font-size: calc(14px + 6 * ((100vw - 320px) / 680));
 }
@@ -445,6 +448,12 @@ footer {
   }
   .content-bottom > form > input[type="date"] {
     font-size: 15px;
+  }
+  .content-bottom > form.full {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
+    height: 50vh;
   }
   .content {
     width: 100%;
