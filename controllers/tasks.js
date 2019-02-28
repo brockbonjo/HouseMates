@@ -6,9 +6,26 @@ module.exports = {
     destroy,
     edit,
     update,
+    show,
 };
 
 /*----------------------------------------------------*/
+
+function show(req, res) {
+    Household.findOne({"_id": req.user.household})
+    .then( h => {
+        let chore = h.chores.id(req.params.id);
+        console.log(chore);
+        res.render('household/tasks/show', {
+            user: req.user,
+            household: h,
+            title: 'Task',
+            thisTask: chore,
+        });
+    }).catch( err => {
+        res.render('error', {err:err});
+    })
+}
 
 function update(req, res) {
     Household.findOne({"_id": req.user.household}, (err, household) => {
@@ -49,6 +66,7 @@ function destroy(req, res) {
 }
 
 function create(req, res) {
+    req.body.author = req.user.name;
     Household.findById(req.user.household, (err, household) => {
         household.chores.push(req.body);
         household.save( err => {

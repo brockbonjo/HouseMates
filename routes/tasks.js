@@ -7,6 +7,7 @@ router.use(myUtils.isLoggedIn);
 router.use(myUtils.hasHousehold);
 
 router.get('/', tasksCtrl.index);
+router.get('/:id', tasksCtrl.show);
 router.get('/:id/edit', tasksCtrl.edit);
 
 router.post('/', tasksCtrl.create);

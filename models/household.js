@@ -15,6 +15,7 @@ const choreSchema = new Schema({
     name: String,
     description: String,
     deadline: Date,
+    author: String,
 }, {timestamps: true});
 
 const spendingsSchema = new Schema({

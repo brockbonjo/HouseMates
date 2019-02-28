@@ -1,0 +1,22 @@
+<%- include ../../partials/nav %>
+<%- include ../../partials/household_top %>
+
+<div class="body-content">
+    <div class="content">
+        <a href="/household/tasks">
+            <i class="fas fa-arrow-left fa-3x"></i>
+        </a>
+        <h1><%=thisTask.name%></h1>
+        <p><%=thisTask.description%></p>
+        <h2>Deadline: <%= thisTask.deadline.toDateString() %></h2>
+        <br>
+        <br>
+        <% if(thisTask.author) {%>
+            <p>added by: <%=thisTask.author%></p>
+        <%}%>
+    </div>
+</div>
+
+
+
+<%- include ../../partials/footer %>

@@ -32,6 +32,9 @@
                     <div class="quantity">
                         <%= c.deadline.toDateString() %>
                     </div>
+                    <form action="/household/tasks/<%=c._id%>" method="GET">
+                        <button type="submit">details</button>
+                    </form>
                     <form action="/household/tasks/<%= c._id %>?_method=DELETE" method="POST">
                         <button class="deletebtn" type="submit">X</button>
                     </form>
