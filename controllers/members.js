@@ -110,11 +110,11 @@ function destroy(req, res) {
         user.household = undefined;
         return user.save()
     }).then( (u) => {
-        console.log(u);
         return Household.findOneAndUpdate({_id: req.user.household},
             {$pull: {members: user}});
     }).then( (hh) => {
-        res.redirect('/household/members');
+        if(user == req.user._id) res.redirect('/');
+        else res.redirect('/household/members');
     });
 }
 
@@ -124,7 +124,7 @@ function index(req, res) {
     .then( hh => {
         res.render('household/members/index',{
             user: req.user,
-            household: hh,
+            household: hh || 'new household',
             title: 'Members'
         });
     })

@@ -9,7 +9,7 @@ body {
   border: 1px solid gray;
 }
 h1 {
-  font-size: calc(35px + 6 * ((100vw - 320px) / 680));
+  font-size: calc(30px + 6 * ((100vw - 320px) / 680));
   font-weight: 300;
 }
 h2 {
@@ -109,10 +109,6 @@ nav {
   position: relative;
   height: 100%;
   width: 100%;
-  /* place-self: center; */
-}
-#hh-tiles-container > a:hover {
-  background: rgb(255,0,100);
 }
 .hh-tiles {
   box-shadow: 1px 1px 30px 0px;
@@ -171,22 +167,28 @@ nav {
 }
 .content-bottom {
   margin: 0 auto;
-  background: rgba(100,100,100, 0.5);
+  background: rgba(62,97,128,0.7);
   padding: 10px;
   position: relative;
 }
-.content-bottom > form > input {
+.content-bottom > form > input,
+.content-bottom > form > div {
   width: 100%;
+  justify-self: center;
+  align-self: center;
+}
+.content-bottom > form > div > i {
+  margin: 10px;
 }
 .content-bottom > form {
   display: grid;
-  grid-template-columns: 1fr 1fr 0.2fr;
-  grid-template-rows: 1fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1fr 0.5fr 0.5fr;
 }
 .content-bottom > form.full {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 2fr 1fr 1fr;
+  height: 20vh;
 }
 .content-bottom > form > input {
   font-size: calc(14px + 6 * ((100vw - 320px) / 680));
@@ -200,12 +202,10 @@ nav {
   border-collapse: collapse;
   padding: 2%;
 }
-.urgent {
+.urgent,
+.past {
   background-image: url('../images/orange-bcg.png');
   background-size: cover;
-}
-.past {
-  color: red;
 }
 .quantity {
   margin: 0 15px;
@@ -218,6 +218,7 @@ nav {
 }
 .addbtn {
   color: green;
+  width: 40px;
 }
 .one-msg {
   border: rgb(228, 203, 41);
@@ -257,7 +258,8 @@ nav {
   color: green;
 }
 #total {
-  font-size: 18px;
+  width: 40vw;
+  font-size: 20px;
   position: absolute;
   top: 0;
   right: 0;
@@ -267,8 +269,9 @@ nav {
   margin: 12px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   background: url('../images/orange-bcg.png');
+  box-shadow: 10px 10px 30px gray;
 }
 #invite {
   height: 5vh;
@@ -343,6 +346,54 @@ i:hover {
 }
 footer {
   text-align: center;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+@media only screen and (max-width: 768px) {
+  body {
+    grid-template-rows: 10vh 15vh 72vh 3vh;
+  }
+  .welcome-page {
+    background: url("../images/mobilebcg.jpg");
+    background-size: cover;
+    background-position-y: right;
+  }
+  input {
+    font-size: 15px;
+  }
+  #new-household {
+    width: 95%;
+    height: 70vh;
+  }
+  #new-household > form {
+    height: 40%;
+    width: 90%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  #new-household > form > * {
+    font-size: 25px;
+  }
+  #hh-tiles-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .content-bottom > form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.2fr;
+    grid-template-rows: 1fr 0.5fr;
+  }
+  .content-bottom > form > input {
+    font-size: 25px;
+  }
+  .content {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .one-item {
+    height: 8vh;
+  }
+}
 

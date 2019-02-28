@@ -16,8 +16,6 @@ button.addEventListener('click', function(e) {
         message: 'the message has been sent'
     });
 })
-
-
 function makeVisible(el) {
     el.style.visibility = 'visible';
     setTimeout(() => {

@@ -4,23 +4,11 @@
 <div class="body-content">
 <div class="content-bottom">
         <form action="/household/shopping" method="POST" autocomplete="off">
-            <div><input type="text" name="name" placeholder="items name">
-            <input type="text" name="quantity" placeholder="how many" pattern="[0-9]{1,}" title="The value must be a number">
-            <!-- <select>
-                <option value="lbs">lbs</option>
-                <option value="package">package</option>
-                <option value="pack">pack</option>
-                <option value="carton">carton</option>
-                <option value="loaf">loaf</option>
-                <option value="box">box</option>
-                <option value="bottle">bottle</option>
-                <option value="can">can</option>
-                <option value="gallon">gallon</option>
-                <option value="pint">pint</option>
-            </select> -->
-        </div>
-            <div><input type="checkbox" name="urgent"> urgent
-            <input type="submit" value="&#43;" class="addbtn"></div>
+            <input type="text" name="name" placeholder="items name" required="required">
+            <input type="text" name="quantity" placeholder="how many" pattern="[0-9]{1,}" title="The value must be a number" required="required">
+            <div></div>
+            <div><input type="checkbox" name="urgent"> urgent</div>
+            <input type="submit" value="&#43;" class="addbtn">
         </form>
     </div>
 <div class="content">
