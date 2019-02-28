@@ -17,12 +17,18 @@ function destroy(req, res) {
     Household.findOneAndDelete({"_id": req.user.household})
     .then(hh => {
         console.log(hh);
-        return User.updateMany(
+        let p1 = Message.deleteMany(
+            {"_id": {$in: hh.messages}},
+            {multi: true}
+        );
+        let p2 =  User.updateMany(
             {"_id": {$in: hh.members}},
             {$unset: {household:1}},
             {multi: true}
         );
+        return Promise.all([p1,p2]);
     }).then (x => {
+        console.log(x);
         res.redirect('/');
     });
 }
@@ -30,7 +36,7 @@ function destroy(req, res) {
 function update(req, res) {
     Household.findByIdAndUpdate(req.user.household, {name: req.body.name})
     .then( () => {
-        req.user.household.remove();
+        // req.user.household.remove();
         res.redirect('/household/settings');
     });
 }
