@@ -9,10 +9,18 @@ module.exports = {
     create,
     join, 
     update,
-    destroy
+    destroy,
+    leave,
 }
 
-
+function leave(req, res) {
+    req.user.update(
+        {$unset: {household:1}}
+    ).then( response => {
+        console.log(response);
+        res.redirect('/household/new');
+    })
+}
 function destroy(req, res) {
     Household.findOneAndDelete({"_id": req.user.household})
     .then(hh => {

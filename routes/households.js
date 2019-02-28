@@ -12,6 +12,7 @@ router.get('/new', householdsCtrl.new);
 router.post('/', householdsCtrl.create);
 router.post('/join', householdsCtrl.join);
 router.post('/update', householdsCtrl.update);
+router.post('/leave', householdsCtrl.leave);
 router.delete('/', householdsCtrl.destroy);
 
 
