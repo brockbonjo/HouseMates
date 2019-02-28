@@ -2,7 +2,7 @@
 <%- include ../../partials/household_top %>
 
 <div class="body-content">
-    <div class="content">
+    <div class="content" id="settings-content">
         <a href="/household">
             <i class="fas fa-arrow-left fa-3x"></i>
         </a>
@@ -10,10 +10,14 @@
         <form action="/household/update" method="POST">
             <label>
                 Name of this Household
-                <input type="text" name="name" value="<%=household.name%>">
+                <input type="text" name="name" value="<%=household.name%>" autocomplete="off">
             </label>
-            <input type="submit" value="update name">
+            <input type="submit" value="update name" class="updatebtn">
         </form>
+
+        <div>
+            <img src="/images/thankyou.jpg" alt="thank you image" id="thanks-image">
+        </div>
 
         <form action="/household/leave" method="POST">
             <label>
@@ -21,7 +25,7 @@
                 <input type="submit" value="LEAVE" class="deletebtn" onclick="return confirm('Are you sure you want to leave this household?')">
             </label>
         </form>
-
+<br>
         <form action="/household?_method=DELETE" method="POST">
             <label>
                 Delete this Household
@@ -31,5 +35,4 @@
         
     </div>
 </div>
-</body>
-</html>
+<%- include ../../partials/footer %>

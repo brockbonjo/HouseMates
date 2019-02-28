@@ -1,6 +1,3 @@
-const User = require('../models/user');
-const Household = require('../models/household');
-
 module.exports = {
     index,
     logout

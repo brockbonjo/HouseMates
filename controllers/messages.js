@@ -1,5 +1,4 @@
 const Household = require('../models/household');
-const User = require('../models/user');
 const Message = require('../models/message');
 
 module.exports = {
@@ -8,6 +7,7 @@ module.exports = {
     distroy,
 };
 
+/*---------------------------------------*/
 
 function distroy(req, res) {
     Message.findByIdAndDelete(req.params.id)
@@ -16,6 +16,8 @@ function distroy(req, res) {
             {$pull: {messages: req.params.id}});
     }).then( () => {
         res.redirect('/household/messages');
+    }).catch( err => {
+        res.render('error', {err});
     });
 }
 
@@ -37,6 +39,8 @@ function create(req, res) {
         });
     }).then( () => {
         res.redirect('/household/messages');
+    }).catch ( err => {
+        res.render('error', {err});
     });
 }
 
@@ -52,6 +56,6 @@ function index(req, res) {
             messages: household.messages,
         });
     }).catch( err=> {
-        console.log(err);
+        res.render('error', {err});
     });
 }

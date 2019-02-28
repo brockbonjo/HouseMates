@@ -1,6 +1,5 @@
 module.exports = {
     codeGenerator: generateRandomId,
-    isLoggedIn,
 }
 
 function generateRandomId(n) {
@@ -15,12 +14,5 @@ function generateRandomId(n) {
         passArr.push(allChars[ranNo]);
     }
     return passArr.join('');
-}
-
-function isLoggedIn(req, res, next) {
-    if(req.isAuthenticated() ) {
-      return next();
-    }
-    res.redirect('/');
 }
 

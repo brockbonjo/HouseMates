@@ -8,6 +8,7 @@ module.exports = {
     update,
 };
 
+/*----------------------------------------------------*/
 
 function update(req, res) {
     Household.findOne({"_id": req.user.household}, (err, household) => {
@@ -21,6 +22,7 @@ function update(req, res) {
         res.redirect('/household/tasks');
     });
 }
+
 function edit(req, res) {
     let itemId = req.params.id;
     Household.findOne({"_id": req.user.household}, (err, household) => {
@@ -35,6 +37,7 @@ function edit(req, res) {
         });
     });
 }
+
 function destroy(req, res) {
     Household.findOne({"_id": req.user.household}, (err, household) => {
         household.chores.id(req.params.id).remove();
@@ -54,6 +57,7 @@ function create(req, res) {
         });
     });
 }
+
 function index(req, res) {
     req.user.populate({path: 'household'}, function(err, user) {
         user.household.populate({path: 'members'}, function(err, hh) {
@@ -63,6 +67,6 @@ function index(req, res) {
                 title: 'My Tasks', 
                 household: hh,
             });
-        })
-    })
+        });
+    });
 }

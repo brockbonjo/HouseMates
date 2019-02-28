@@ -1,5 +1,4 @@
 const Household = require('../models/household');
-const User = require('../models/user');
 
 module.exports = {
     index,
@@ -8,6 +7,7 @@ module.exports = {
     removeOne,
 };
 
+/*---------------------------------------*/
 
 function removeOne(req, res) {
     Household.findById(req.user.household)
@@ -16,6 +16,8 @@ function removeOne(req, res) {
         hh.save()
     }).then( hh => {
         res.redirect('/household/spendings');
+    }).catch( err => {
+        res.render('error', {err});
     });
 }
 
@@ -26,6 +28,8 @@ function distroy(req, res) {
         return hh.save()
     }).then ( hh => {
         res.redirect('/household/spendings');
+    }).catch(err => {
+        res.render('error', {err});
     });
 }
 
@@ -36,7 +40,9 @@ function create(req, res) {
         return hh.save()  
     }).then ( (hh) => {
         res.redirect('/household/spendings');
-    })
+    }).catch ( err => {
+        res.render('error', {err});
+    });
 }
 function index(req, res) {
     Household.findById(req.user.household)
@@ -47,6 +53,7 @@ function index(req, res) {
             household: hh,
             title: 'My Spendings'
         });
+    }).catch( err => {
+        res.render('error', {err});
     });
 }
-

@@ -2,7 +2,6 @@ const Household = require('../models/household');
 const User = require('../models/user');
 const Message = require('../models/message');
 
-
 module.exports = {
     index,
     new: newHH,
@@ -19,12 +18,14 @@ function leave(req, res) {
     ).then( response => {
         console.log(response);
         res.redirect('/household/new');
-    })
+    }).catch(err => {
+        res.render('error', {err});
+    });
 }
+
 function destroy(req, res) {
     Household.findOneAndDelete({"_id": req.user.household})
     .then(hh => {
-        console.log(hh);
         let p1 = Message.deleteMany(
             {"_id": {$in: hh.messages}},
             {multi: true}
@@ -36,8 +37,9 @@ function destroy(req, res) {
         );
         return Promise.all([p1,p2]);
     }).then (x => {
-        console.log(x);
         res.redirect('/');
+    }).catch ( err => {
+        res.render('error', {err});
     });
 }
 
@@ -46,8 +48,11 @@ function update(req, res) {
     .then( () => {
         // req.user.household.remove();
         res.redirect('/household/settings');
+    }).catch ( err => {
+        res.render('error', {err});
     });
 }
+
 function join(req, res) {
     let invite = req.body.code;
     Household.findOne({'accessCode': invite}, function(err, household) {
@@ -66,7 +71,7 @@ function join(req, res) {
                 })
                 res.redirect('/household');
             } else {
-                res.redirect('/household/new');                         /*maybe some angry kitty etc*/
+                res.redirect('/household/new');
             } 
         }
     });
@@ -94,6 +99,7 @@ function newHH(req, res, next) {
         title: 'Welcome!'
     });
 }
+
 function index(req, res, next) {
     if(req.user.household) {
         Household.findById(req.user.household)
@@ -114,6 +120,6 @@ function index(req, res, next) {
             user: req.user,
             household: null,
             title: 'Join or Create'
-        })
+        });
     }
 }

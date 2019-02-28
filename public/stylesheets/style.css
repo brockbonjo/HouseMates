@@ -189,6 +189,9 @@ nav {
 .content-bottom > form > label {
   text-align: right;
   padding-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #paper-clip {
   color: rgba(226,110,145,1);
@@ -312,7 +315,7 @@ nav {
   margin-bottom: 30px;
   /* background: url('../images/aqua-bcg.png'); */
   background: rgb(62,97,128);
-  box-shadow: 10px 10px 5px grey;
+  box-shadow: 10px 10px 40px grey;
 }
 .member-card {
   width: 70%;
@@ -321,6 +324,7 @@ nav {
   background-size:cover;
   background-position: bottom;
   border-radius: 10px;
+  box-shadow: 5px 5px 20px gray;
 }
 .member-pink {
   background-image: url('../images/cards/pink.jpg');
@@ -376,6 +380,16 @@ i:hover {
   border-radius: 20px;
   box-shadow: 10px 10px 100px rgb(226,110,145);
 }
+#thanks-image {
+  height: 25vh;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px gray;
+}
+#settings-content > div > img {
+  display: block;
+  margin: 30px auto;
+}
 footer {
   text-align: center;
   background: white;
@@ -385,7 +399,7 @@ footer {
 }
 @media only screen and (max-width: 768px) {
   body {
-    grid-template-rows: 10vh 20vh 72vh 3vh;
+    grid-template-rows: 10vh 20vh 67vh 3vh;
   }
   .welcome-page {
     background: url("../images/mobilebcg.jpg");
@@ -442,6 +456,14 @@ footer {
   }
   .addbtn {
     width: 50px;
+  }
+  #notification {
+    height: 20vh;
+    width: 50%;
+    flex-direction: column;
+  }
+  #notification > * {
+    margin: 10%;
   }
 }
 

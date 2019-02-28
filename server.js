@@ -15,7 +15,6 @@ require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const householdRouter = require('./routes/households');
 const shoppingRouter = require('./routes/shopping');
 const tasksRouter = require('./routes/tasks');
@@ -48,7 +47,6 @@ app.use(passport.session());
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/household/shopping', shoppingRouter);
 app.use('/household/tasks', tasksRouter);
 app.use('/household/messages', messagesRouter);

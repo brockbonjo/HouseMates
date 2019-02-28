@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const membersCtrl = require('../controllers/members');
-const myUtils = require('../utilities/my_utils');
-const middlewareCtrl = require('../controllers/middleware');
+const myUtils = require('../utilities/my_middleware');
+const middlewareCtrl = require('../utilities/pic_middleware');
 
 router.use(myUtils.isLoggedIn);
 

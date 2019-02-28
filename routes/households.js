@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const householdsCtrl = require('../controllers/households');
-const myUtils = require('../utilities/my_utils');
+const myUtils = require('../utilities/my_middleware');
 
 router.use(myUtils.isLoggedIn);
 

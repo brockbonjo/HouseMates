@@ -8,6 +8,7 @@ module.exports = {
     update,
 };
 
+/*-------------------------------------------*/
 
 function update(req, res) {
     Household.findOne({"_id": req.user.household}, (err, household) => {
@@ -32,16 +33,17 @@ function edit(req, res) {
             household,
             title: 'Edit',
             item
-        })
-    })
+        });
+    });
 }
+
 function destroy(req, res) {
     Household.findOne({"_id": req.user.household}, function( err, household) {
         household.shoppingList.id(req.params.id).remove();
         household.save( function(err) {
             if(err) console.log(err);
             else res.redirect('/household/shopping');
-        })
+        });
     });
 }
 
@@ -56,19 +58,6 @@ function create(req, res) {
     });
 }
 
-// function create(req, res) {
-//     let newList = req.body;
-//     newList = [];
-//     req.user.populate({path: 'household'}, function(err, user) {
-//         user.household.shoppingList = newList;
-//         user.household.save(function(err) {
-//             if(err) console.log(err);
-//             res.redirect('/household/shopping');
-//         })
-//     })
-
-// }
-
 function index(req, res) {
     req.user.populate({path: 'household'}, function(err, user) {
         user.household.populate({path: 'members'}, function(err, hh) {
@@ -79,10 +68,5 @@ function index(req, res) {
                 household: hh
             });
         });
-        // res.render('household/shopping/index', {
-        //     user,
-        //     title: 'My Shopping',
-        //     household: user.household,
-        // });
     });
 }

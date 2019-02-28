@@ -6,11 +6,14 @@
         <a href="/household">
             <i class="fas fa-arrow-left fa-3x"></i>
         </a>
-        <h2>Enter an email of a person you would like to send the invite code to</h2>
-        <p>please allow a few minutes to receive the email</p>
-        <p>and don't forget to check the SPAM foler...</p>
+        <h2>Enter an email of a person you would like to invite</h2>
+        <br>
+        <p>please allow a few minutes to receive the email...</p>
+        <br>
+        <br>
+        <p>and don't forget to check the SPAM foler...</p><br>
         <form action="/household/members/send" method="POST">
-        <input type="text" name="email">
+        <input type="text" name="email" placeholder="someone@myhousehold.xx" autocomplete="off">
         <input type="submit" value="send">
         </form>
 
