@@ -7,15 +7,15 @@
             <i class="fas fa-arrow-left fa-3x"></i>
         </a>
 
-<div>
+    <div id="edit-form">
     <form action="/household/shopping/<%= item._id %>?_method=PUT" method="POST" class="edit-form">
         <div><input type="text" name="name" value="<%= item.name %>">
             <input type="text" name="quantity" value="<%= item.quantity %>" >
-            <input type="checkbox" name="urgent" <%= (item.urgent) ? 'checked' : '' %> >urgent
+            <div><input type="checkbox" name="urgent" <%= (item.urgent) ? 'checked' : '' %> >urgent</div>
         </div>
         <input type="submit" value="update" class="updatebtn">
     </form>
-</div>
+    </div>
 </div>
 </div>
 <%- include ../../partials/footer %>
