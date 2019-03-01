@@ -12,7 +12,7 @@ In the real household there are no boundries and authorization between the house
 > "Because in houseMates we trust each other"
 
 # try it
-[here](house--mates.herokuapp.com)
+[here](http://house--mates.herokuapp.com)
 
 ## Technology used
 * HTML/CSS/JavaScript
