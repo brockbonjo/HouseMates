@@ -11,6 +11,8 @@ if someone have introduced me to the houseMates...
 In the real household there are no boundries and authorization between the housemates! You trust each other, you contribute to the common chores, and you spend each others' money... That's why in houseMates any one can post and remove items from the taskList and shoppingList. The message system was designed to imitate the "stickies" you post on your fridge. In real life, anyone can remove them! That's why you can remove notes posted by another household members if you find them annoying or sad! 
 > "Because in houseMates we trust each other"
 
+# try it
+[here](house--mates.herokuapp.com)
 
 ## Technology used
 * HTML/CSS/JavaScript
