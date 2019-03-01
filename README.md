@@ -38,3 +38,6 @@ In the real household there are no boundries and authorization between the house
 * ENJOY YOUR NEWLY ORGANIZED HOUSEHOLD
 
 ![image](https://imgur.com/5tfm8cQ.png)
+
+# ice box
+[my Trello board](https://trello.com/b/HbmuAzzQ/housemates)
