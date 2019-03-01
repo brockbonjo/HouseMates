@@ -4,7 +4,7 @@
     <div class="content-bottom">
         <form action="/household/spendings" method="POST" autocomplete="off">
             <input type="text" name="description" placeholder="description" required="required">
-            <input type="text" name="amount" placeholder="0" pattern="[0-9]{1,}.\d\d" title="Only two decimal places allowed..."required="required">
+            <input type="text" name="amount" placeholder="$0.00" pattern="[0-9]{1,}.\d\d" title="Only two decimal places allowed..."required="required">
             <div>
             </div>
             <div></div>
@@ -39,7 +39,7 @@
 
         <div id="total">
         <p> total is $<%= total.toFixed(2) %></p>
-        <p class="small-p">that's <%= (total/household.members.length).toFixed(2)%> per member...</p>
+        <p class="small-p">that's $<%= (total/household.members.length).toFixed(2)%> per member...</p>
         <form action="/household/spendings?_method=DELETE" method="POST">
             <input type="submit" value="reset" class="deletebtn">
         </form>
