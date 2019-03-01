@@ -1,7 +1,7 @@
 # houseMates
 
 ## description
-Throughout my life, I have been a bad roommate... Sometimes I would forget to put cups back to the sink because I was practicing for a violin competition.  Sometimes I was so engaged in studying that I didn't notice a new life growing in our kitchen, which caused many unpleasant conversations with my roommates.
+Throughout my life, I have been a bad roommate... Sometimes I would forget to put cups back to the sink because I was practicing for a violin competition.  Sometimes I was so engaged in studying that I didn't notice a new life growing in our kitchen, what caused many unpleasant conversations with my roommates.
 
 ### all of that could have easily been avoided
 if someone have introduced me to the houseMates...  
