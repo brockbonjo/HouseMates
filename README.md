@@ -7,6 +7,11 @@ Throughout my life, I have been a bad roommate... Sometimes I would forget to pu
 if someone have introduced me to the houseMates...  
 ![image](https://i.imgur.com/vanKp8d.png)
   
+## ideology
+In the real household there are no boundries and authorization between the housemates! You trust each other, you contribute to the common chores, and you spend each others' money... That's why in houseMates any one can post and remove items from the taskList and shoppingList. The message system was designed to imitate the "stickies" you post on your fridge. In real life, anyone can remove them! That's why you can remove notes posted by another household members if you find them annoying or sad! 
+> "Because in houseMates we trust each other"
+
+
 ## Technology used
 * HTML/CSS/JavaScript
 * NodeJS
@@ -17,10 +22,12 @@ if someone have introduced me to the houseMates...
 * nodemailer
 * cloudinary
 * Heroku
+* Photoshop CC
 * and many more...
 
 ![image](https://i.imgur.com/evLK1AZ.png)
 ![image](https://i.imgur.com/c0AWc13.png)
+![image](https://i.imgur.com/PkjavFx.png)
 
 # what can you do? 
 * create/edit/remove households, invite friends by email
