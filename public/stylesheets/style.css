@@ -212,12 +212,17 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 0.5fr 0.5fr;
   grid-gap: 5px;
+  height: 12vh;
 }
 .content-bottom > form.full {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 2fr 1fr 1fr;
   height: 20vh;
+  transition: height 1s;
+}
+form.full > input[name="content"] {
+  height: 100%;
 }
 .content-bottom > form.full > input[type="submit"] {
   width: 20%;
