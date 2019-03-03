@@ -8,8 +8,6 @@ let bigger = document.getElementsByTagName('i')[0];
 socket.on('send-notification', data => {
     makeVisible(notification);
 });
-//instead you will display some message using js!
-//for a few seconds !! 
 
 button.addEventListener('click', function(e) {
     socket.emit('new-msg', {

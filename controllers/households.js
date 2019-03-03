@@ -13,10 +13,14 @@ module.exports = {
 }
 
 function leave(req, res) {
-    req.user.update(
-        {$unset: {household:1}}
-    ).then( response => {
-        console.log(response);
+    let id = req.user.household;
+    let user = req.user;
+    Household.findOneAndUpdate({"_id": id},
+        {$pull: {members: req.user._id}})
+    .then( () => {
+        return req.user.update(
+            {$unset: {household:1}});
+    }).then( response => {
         res.redirect('/household/new');
     }).catch(err => {
         res.render('error', {err});
