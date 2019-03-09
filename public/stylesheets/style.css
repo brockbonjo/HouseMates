@@ -121,7 +121,6 @@ nav {
   height: 100%;
   width: 100%;
   text-align: center;
-  border: 1px solid gray;
 }
 .hh-tiles > h2 {
   display: block;
@@ -130,8 +129,7 @@ nav {
   text-shadow: 1px 1px rgba(0,0,0,0.7);
 }
 .hh-tiles:hover {
-  border: none;
-  filter: none;
+  transform: scale(1.01);
 }
 #hh-shopping {
   background: url("../images/shopping.jpg");
@@ -255,7 +253,7 @@ form.full > input[name="content"] {
   background: linear-gradient(white 20%, gray)
 }
 .one-item:hover {
-  background: linear-gradient(white 3 0%, gray);
+  background: linear-gradient(white 30%, gray);
 }
 .urgent,
 .past {
@@ -469,6 +467,7 @@ footer {
   }
   .content-bottom { 
     box-shadow: 1px 1x 10px gray;
+    top: 0;
   }
   .content-bottom > form {
     display: grid;
@@ -476,7 +475,7 @@ footer {
     grid-template-rows: 2fr 1fr;
   }
   .content-bottom > form > input {
-    font-size: 20px;
+    font-size: 15px;
   }
   .content-bottom > form > input[type="submit"]{
     font-size: 15px;
