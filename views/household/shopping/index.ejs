@@ -25,7 +25,7 @@
         <div class="one-item  <%= (i.urgent) ? 'urgent' : '' %>"
            
         >
-            <%=i.name%>
+            <h4><%=i.name%></h4>
             <div class="buttons">
             <div class="quantity"><%= i.quantity %></div>
             <form action="/household/shopping/<%= i._id %>?_method=DELETE" method="POST" >

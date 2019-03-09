@@ -20,8 +20,7 @@
         if (household.spendings.length > 0) { %>
                 <% household.spendings.forEach(function(s) {%> 
                     <div class="one-item">
-                        <div><%= s.description %></div>
-                        
+                        <div><h4><%= s.description %></h4></div>
                         <div class="buttons">
                         <div class="quantity">$<%=s.amount %></div>
                         <form action="/household/spendings/<%=s._id%>?_method=DELETE" method="POST">
@@ -35,8 +34,6 @@
         <% } else { %>
             <p>yeah, no spendings yet!!</p>
         <% } %>
-        
-
         <div id="total">
         <p> total is $<%= total.toFixed(2) %></p>
         <p class="small-p">that's $<%= (total/household.members.length).toFixed(2)%> per member...</p>

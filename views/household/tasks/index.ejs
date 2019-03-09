@@ -27,10 +27,10 @@
         <% user.household.chores.forEach(function(c) { %>
         <div class="one-item <%= (c.deadline < new Date()) ? 'past' : '' %>">
             
-            <%= c.name %>
+            <h4><%= c.name %></h4>
                 <div class="buttons">
                     <div class="quantity">
-                        <%= c.deadline.toDateString() %>
+                        <%= c.deadline.toLocaleDateString() %>
                     </div>
                     <form action="/household/tasks/<%=c._id%>" method="GET">
                         <button type="submit">details</button>

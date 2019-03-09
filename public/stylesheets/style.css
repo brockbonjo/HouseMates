@@ -21,6 +21,9 @@ h2 {
 h3, a {
   font-size: calc(18px + 6 * ((80vw - 320px) / 680));
 }
+h4 {
+  font-size: 18px;  
+}
 a {
   text-decoration: none;
   color: black;
@@ -178,7 +181,15 @@ nav {
   position: relative;
   box-shadow: 5px 5px 50px gray;
   border-top: 2px solid rgba(226,110,145, 0.6);
+  top: -80px;
+  z-index: 0;
+  transition: top 0.3s linear;
 }
+.content-bottom:hover {
+  top: 0px;
+  transition: top 0.3s linear;
+}
+
 .content-bottom > form > input,
 .content-bottom > form > div {
   width: 100%;
@@ -234,18 +245,27 @@ form.full > input[name="content"] {
   font-size: 12px;
 }
 .one-item {
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5vh;
+  height: 7vh;
   border-collapse: collapse;
   padding: 2%;
+  background: linear-gradient(white 20%, gray)
+}
+.one-item:hover {
+  background: linear-gradient(white 3 0%, gray);
 }
 .urgent,
 .past {
-  background-image: url('../images/orange-bcg.png');
-  background-size: cover;
+  /* background-image: url('../images/orange-bcg.png');
+  background-size: cover; */
+  background: linear-gradient(#ec4042,#8f0222,#6d0019);
+}
+.urgent:hover,
+.past:hover {
+  background: linear-gradient(#ec4042 19%,#8f0222,#6d0019)
 }
 .quantity {
   margin: 0 15px;
@@ -336,6 +356,12 @@ form.full > input[name="content"] {
   background-position: bottom;
   border-radius: 10px;
   box-shadow: 5px 5px 20px gray;
+  transition: 1s;
+}
+.member-card:hover {
+  transition: 1s;
+  transform: scale(1.1);
+  box-shadow: 10px 10px 20px gray;
 }
 .member-pink {
   background-image: url('../images/cards/pink.jpg');
@@ -412,6 +438,9 @@ footer {
   body {
     grid-template-rows: 10vh 20vh 67vh 3vh;
   }
+  h4 {
+    font-size: 20px;
+  }
   .welcome-page {
     background: url("../images/mobilebcg.jpg");
     background-size: cover;
@@ -469,7 +498,7 @@ footer {
     -webkit-overflow-scrolling: touch;
   }
   .one-item {
-    height: 8vh;
+    height: 12vh;
   }
   .addbtn {
     width: 50px;
