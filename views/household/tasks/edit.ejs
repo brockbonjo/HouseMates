@@ -12,9 +12,15 @@
     <form action="/household/tasks/<%= chore._id %>?_method=PUT" method="POST" class="edit-form">
         <input type="text" name="name" value="<%= chore.name %>">
         <input type="text" name="description" value="<%= chore.description %>" >
-        <input type="date" name="deadline">
+    <% 
+        let thisMonth = (parseInt(chore.deadline.getMonth()) < 10) ? "0"+chore.deadline.getMonth() : chore.deadline.getMonth();
+        let thisDay = (parseInt(chore.deadline.getDate()) < 10) ? "0"+chore.deadline.getDate() : chore.deadline.getDate();
+        let fullDate = `${chore.deadline.getFullYear()}-${thisMonth}-${thisDay}`;
+        console.log(fullDate);
+    %>
+        <input type="date" name="deadline" value="<%=fullDate%>">
         <div>
-        <input type="submit" value="update" class="updatebtn">
+        <input type="submit" value="update" class="thisDa">
         </div>
     </form>
 </div>

@@ -190,13 +190,25 @@ nav {
 
 .content-bottom > form > input,
 .content-bottom > form > div {
-  width: 100%;
+  width: 90%;
   justify-self: center;
   align-self: center;
 }
-.content-bottom > form > input[type="date"],
+.content-bottom > form > input{
+  box-shadow: 5px 5px 40px gray;
+}
+.content-bottom > form > div > input {
+  box-shadow: 10px 10px 20px gray;
+}
 .content-bottom > form > input[type="submit"] {
-  font-size: 10px;
+  font-size: 20px;
+  width: 50%;
+}
+.content-bottom > form > input[type="date"] {
+  font-size: 20px;
+  width: 90%;
+  margin: 20px;
+  height: 27px;
 }
 .content-bottom > form > label {
   text-align: right;
@@ -280,7 +292,7 @@ form.full > input[name="content"] {
 }
 .one-msg {
   border: rgb(228, 203, 41);
-  box-shadow: 10px 10px 20px grey;
+  box-shadow: 10px 10px 40px grey;
   width: 80%;
   margin: 5vh auto;
   text-align: center;
@@ -321,8 +333,9 @@ form.full > input[name="content"] {
   width: 50vw;
   font-size: 20px;
   position: absolute;
-  top: 0;
+  top: -5px;
   right: 0;
+  z-index: 100;
   background: gray;
   padding: 5px;
   border-radius: 12px;
@@ -476,14 +489,17 @@ footer {
   }
   .content-bottom > form > input {
     font-size: 15px;
+    width: 100%;
   }
   .content-bottom > form > input[type="submit"]{
     font-size: 15px;
-    width: 40%;
-    justify-self: end;
+    width: 30%;
+    justify-self: right;
   }
   .content-bottom > form > input[type="date"] {
     font-size: 15px;
+    height: 24px;
+    width: 100%;
   }
   .content-bottom > form.full {
     display: grid;

@@ -14,6 +14,9 @@
         <% if(thisTask.author) {%>
             <p>added by: <%=thisTask.author%></p>
         <%}%>
+        <form action="/household/tasks/<%= thisTask._id %>/edit" method="GET">
+            <button class="editbtn" type="submit">EDIT</button>
+        </form>
     </div>
 </div>
 

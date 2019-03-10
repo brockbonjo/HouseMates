@@ -3,7 +3,7 @@
 <div class="body-content">
         <div class="content-bottom">
                 <form action="/household/tasks" method="POST" autocomplete="off">
-                    <input type="text" name="name" placeholder="task name">
+                    <input type="text" name="name" placeholder="task">
                     <input type="text" name="description" placeholder="details">
                     <div></div>
                     <input type="date" name="deadline">
@@ -37,9 +37,6 @@
                     </form>
                     <form action="/household/tasks/<%= c._id %>?_method=DELETE" method="POST">
                         <button class="deletebtn" type="submit">X</button>
-                    </form>
-                    <form action="/household/tasks/<%= c._id %>/edit" method="GET">
-                        <button class="editbtn" type="submit">EDIT</button>
                     </form>
                 </div>
         </div> 
